@@ -1,0 +1,22 @@
+{
+  "name": "fbbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitryt-sm/fbbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmitryt-sm/fbbot/issues"
+  },
+  "homepage": "https://github.com/dmitryt-sm/fbbot#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
