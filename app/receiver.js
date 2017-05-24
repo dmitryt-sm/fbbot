@@ -6,6 +6,7 @@ const QUESTIONS = [
   {text: 'What is your birthdate?'},
   {text: 'How much you need?', validate: v => !isNaN(v), errorMessage: {text: 'I accept only numbers here'}},
   {text: 'What is the purpose?'},
+  {text: 'Thanks, our administrators will contact with you'},
 ];
 
 let currentQuestionIndex = -1;
