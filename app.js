@@ -1,7 +1,10 @@
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
 
 var config = require('./config');
+
+var app = express();
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
