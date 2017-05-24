@@ -1,14 +1,12 @@
 var request = require('request');
 var config = require('../config');
 
-function sendTextMessage(recipientId, messageText) {
+function sendTextMessage(recipientId, {text}) {
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message: {
-      text: messageText
-    }
+    message: {text}
   };
 
   callSendAPI(messageData);
