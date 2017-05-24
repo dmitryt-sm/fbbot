@@ -25,7 +25,7 @@ function receivedMessage({sender, recipient, timestamp, message}) {
     return sendTextMessage(sender.id, QUESTIONS[incQIndex()]);
   }
   let cq = QUESTIONS[currentQuestionIndex];
-  let answer = !cq.validator || cq.validator(message) ? QUESTIONS[incQIndex()] : cq.errorMessage;
+  let answer = typeof cq.validate !== 'function' || cq.validate(message.text) ? QUESTIONS[incQIndex()] : cq.errorMessage;
   return sendTextMessage(sender.id, answer);
 }
 
