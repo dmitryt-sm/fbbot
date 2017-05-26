@@ -36,8 +36,7 @@ function receivedMessage({sender, recipient, timestamp, message}) {
 }
 
 function onFormReceived(data) {
-  console.log(data);
-  var answer = {text: `We received your data: ${data.payload}`};
+  var answer = {text: `We received your data: ${data}`};
   return sendTextMessage(senderId, answer);
 }
 

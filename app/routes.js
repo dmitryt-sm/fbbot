@@ -42,7 +42,14 @@ function post(req, res) {
 }
 
 function formCallback(req, res) {
-  receiver.onFormReceived(req.body);
+  console.log('Form received:', req.body);
+  let json = {};
+  try {
+    json = JSON.parse(Object.keys(req.body)[0]);
+  } catch(e) {
+    console.error(e);
+  }
+  receiver.onFormReceived(json);
   res.sendStatus(200);
 }
 
