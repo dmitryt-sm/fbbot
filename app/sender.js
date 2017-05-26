@@ -9,17 +9,17 @@ function sendForm(recipientId, {text}) {
       id: recipientId
     },
     message: {
-      text: text,
       "attachment":{
         "type":"template",
         "payload":{
           "template_type":"button",
-          "text":"Credit Form",
+          "text": text,
           "buttons":[
             {
               "type":"web_url",
               "url": FORM_URL,
-              "title":"Enter Details"
+              "title":"Enter Details",
+              "webview_height_ratio": "compact"
             }
           ]
         }
