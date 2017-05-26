@@ -37,7 +37,7 @@ function sendTextMessage(recipientId, {text}) {
     },
     message: {text}
   };
-
+  console.log('Trying to send data: ', messageData);
   callSendAPI(messageData);
 }
 

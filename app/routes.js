@@ -42,8 +42,6 @@ function post(req, res) {
 }
 
 function formCallback(req, res) {
-  console.log('FormCallback with data:');
-  console.log(req.body);
   receiver.onFormReceived(req.body);
   res.sendStatus(200);
 }
