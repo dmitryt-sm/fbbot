@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app",
     "start-dev": "nodemon app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "redeploy": "git push https://dmitryt-sm@github.com/dmitryt-sm/fbbot && git push heroku master && heroku logs --tail"
   },
   "repository": {
     "type": "git",

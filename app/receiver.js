@@ -1,5 +1,7 @@
 var {sendTextMessage, sendForm} = require('./sender');
 
+let senderId = '';
+
 // const QUESTIONS = [
 //   {text: 'Hello and thanks for joining our credit program! I\'ll help you to choose the best credit. But at first, I need some information from your side. So, what is your first name?'},
 //   {text: 'What is your last name?'},
@@ -19,6 +21,7 @@ var {sendTextMessage, sendForm} = require('./sender');
 function receivedMessage({sender, recipient, timestamp, message}) {
   console.log("Received message for user %d and page %d at %d with message:", sender.id, recipient.id, timestamp);
   console.log(JSON.stringify(message));
+  senderId = sender.id;
   if (!message.text) {
     return false
   }
@@ -33,8 +36,8 @@ function receivedMessage({sender, recipient, timestamp, message}) {
 }
 
 function onFormReceived(data) {
-  var answer = `We received your data: ${JSON.stringify(data.paylod)}`;
-  return sendTextMessage(data.userid, answer);
+  var answer = `We received your data: ${data.paylod}`;
+  return sendTextMessage(senderId, answer);
 }
 
 module.exports = {
