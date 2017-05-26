@@ -1,4 +1,4 @@
-var {sendTextMessage, fetchForm} = require('./sender');
+var {sendTextMessage, sendForm} = require('./sender');
 
 // const QUESTIONS = [
 //   {text: 'Hello and thanks for joining our credit program! I\'ll help you to choose the best credit. But at first, I need some information from your side. So, what is your first name?'},
@@ -28,7 +28,8 @@ function receivedMessage({sender, recipient, timestamp, message}) {
   // let cq = QUESTIONS[currentQuestionIndex];
   // let answer = typeof cq.validate !== 'function' || cq.validate(message.text) ? QUESTIONS[incQIndex()] : cq.errorMessage;
   // return sendTextMessage(sender.id, answer);
-  return fetchForm();
+  var message = {text: 'Hello and thanks for joining our credit program! I\'ll help you to choose the best credit. But at first, I need some information from your side.'};
+  return sendForm(sender.id, message);
 }
 
 module.exports = receivedMessage;

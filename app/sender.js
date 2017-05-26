@@ -1,28 +1,25 @@
 var request = require('request');
 var config = require('../config');
-var form = require('./form');
 
-const FORM_REQUEST_URL = 'https://api.gupshup.io/sm/api/facebook/smartmsg/form/create';
+var FORM_URL = 'https://smapi.gupshup.io/sm/api/facebook/smartmsg/embed/1b97cecf-d4aa-4060-a01d-a518be099eb3';
 
-function fetchForm() {
-  request({
-    url: FORM_REQUEST_URL,
-    headers: { apikey: config.GUPSHUP_API_KEY, 'Content-Type': 'application/x-www-form-urlencoded', accept: 'application/json'},
-    method: 'POST',
-    json: {formJSON: form}
+function sendForm(recipientId, {text}) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {text},
+    buttons:[
+      {
+        "type":"web_url",
+        "url": FORM_URL,
+        "title":"Enter Details",
+        "webview_height_ratio": "compact"
+      }
+    ]
+  };
 
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      var recipientId = body.recipient_id;
-      var messageId = body.message_id;
-
-      console.log("Successfully sent generic message with id %s to recipient %s",
-        messageId, recipientId);
-    } else {
-      console.error("Unable to send message.");
-      console.error(error, response.statusCode, body);
-    }
-  });
+  callSendAPI(messageData);
 }
 
 function sendTextMessage(recipientId, {text}) {
@@ -59,5 +56,6 @@ function callSendAPI(messageData) {
 }
 
 module.exports = {
-  fetchForm,
+  sendTextMessage,
+  sendForm,
 };
