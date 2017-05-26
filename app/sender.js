@@ -8,15 +8,23 @@ function sendForm(recipientId, {text}) {
     recipient: {
       id: recipientId
     },
-    message: {text},
-    buttons:[
-      {
-        "type":"web_url",
-        "url": FORM_URL,
-        "title":"Enter Details",
-        "webview_height_ratio": "compact"
+    message: {
+      text: text,
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"Credit Form",
+          "buttons":[
+            {
+              "type":"web_url",
+              "url": FORM_URL,
+              "title":"Enter Details"
+            }
+          ]
+        }
       }
-    ]
+    }
   };
 
   callSendAPI(messageData);
