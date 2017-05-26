@@ -1,4 +1,4 @@
-var receivedMessage = require('./receiver');
+var receiver = require('./receiver');
 
 function get(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
@@ -25,7 +25,7 @@ function post(req, res) {
       // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
         if (event.message) {
-          receivedMessage(event);
+          receiver.receivedMessage(event);
         } else {
           console.log("Webhook received unknown event: ", event);
         }
@@ -41,7 +41,15 @@ function post(req, res) {
   }
 }
 
+function formCallback(req, res) {
+  console.log('FormCallback with data:');
+  console.log(req.body);
+  receiver.onFormReceived(req.body);
+  res.sendStatus(200);
+}
+
 module.exports = {
   get: get,
-  post: post
+  post: post,
+  formCallback: formCallback,
 };

@@ -32,4 +32,12 @@ function receivedMessage({sender, recipient, timestamp, message}) {
   return sendForm(sender.id, message);
 }
 
-module.exports = receivedMessage;
+function onFormReceived(data) {
+  var answer = `We received your data: ${JSON.stringify(data.paylod)}`;
+  return sendTextMessage(data.userid, answer);
+}
+
+module.exports = {
+  receivedMessage: receivedMessage,
+  onFormReceived: onFormReceived
+}

@@ -1,7 +1,7 @@
 var request = require('request');
 var config = require('../config');
 
-var FORM_URL = 'https://smapi.gupshup.io/sm/api/facebook/smartmsg/embed/1b97cecf-d4aa-4060-a01d-a518be099eb3';
+var FORM_URL = 'https://smapi.gupshup.io/sm/api/facebook/smartmsg/embed/a36e8985-0d2a-43bb-a913-e9d1fe09adf8';
 
 function sendForm(recipientId, {text}) {
   var messageData = {
