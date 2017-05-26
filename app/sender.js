@@ -20,7 +20,7 @@ function fetchForm() {
         messageId, recipientId);
     } else {
       console.error("Unable to send message.");
-      console.error(error);
+      console.error(error, response.statusCode, body);
     }
   });
 }
