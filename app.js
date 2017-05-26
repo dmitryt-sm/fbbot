@@ -6,6 +6,7 @@ var config = require('./config');
 var routes = require('./app/routes');
 
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/webhook', routes.get);
