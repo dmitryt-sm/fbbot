@@ -35,8 +35,8 @@ function receivedMessage({sender, recipient, timestamp, message}) {
   return sendForm(sender.id, message);
 }
 
-function onFormReceived(data) {
-  var answer = {text: `We received your data: ${data}`};
+function onFormReceived(data = {}) {
+  var answer = {text: `We received your data: ${JSON.stringify(data.payload)}`};
   return sendTextMessage(senderId, answer);
 }
 
