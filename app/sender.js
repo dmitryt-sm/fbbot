@@ -6,7 +6,7 @@ const FORM_REQUEST_URL = 'https://api.gupshup.io/sm/api/facebook/smartmsg/form/c
 
 function fetchForm() {
   request({
-    uri: FORM_REQUEST_URL,
+    url: FORM_REQUEST_URL,
     headers: { apikey: config.GUPSHUP_API_KEY },
     method: 'POST',
     form: form
