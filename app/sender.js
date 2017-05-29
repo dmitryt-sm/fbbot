@@ -36,5 +36,4 @@ function callSendAPI(messageData) {
 
 module.exports = {
   sendTextMessage,
-  sendForm,
 };

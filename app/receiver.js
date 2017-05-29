@@ -1,4 +1,4 @@
-var {sendTextMessage, sendForm} = require('./sender');
+var {sendTextMessage} = require('./sender');
 
 const message = (text) => ({text});
 

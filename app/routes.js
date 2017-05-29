@@ -56,5 +56,4 @@ function formCallback(req, res) {
 module.exports = {
   get: get,
   post: post,
-  formCallback: formCallback,
 };

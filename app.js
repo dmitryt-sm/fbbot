@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 
 app.get('/webhook', routes.get);
 app.post('/webhook', routes.post);
-app.post('/formCallback', routes.formCallback);
 
 app.use(function(err, req, res, next) {
   // Do logging and user-friendly error message display
