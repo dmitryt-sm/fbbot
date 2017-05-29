@@ -33,6 +33,10 @@ function incQIndex() {
   return (currentQuestionIndex = i < QUESTIONS.length - 1 ? i + 1 : -1);
 }
 
+function getNextQuestion() {
+  return QUESTIONS[incQIndex()]['data'];
+}
+
 function receivedMessage({sender, recipient, timestamp, message}) {
   console.log("Received message for user %d and page %d at %d with message:", sender.id, recipient.id, timestamp);
   console.log(JSON.stringify(message));
@@ -40,10 +44,10 @@ function receivedMessage({sender, recipient, timestamp, message}) {
     return false
   }
   if (currentQuestionIndex === -1) {
-    return sendTextMessage(sender.id, QUESTIONS[incQIndex()]);
+    return sendTextMessage(sender.id, getNextQuestion());
   }
   let cq = QUESTIONS[currentQuestionIndex];
-  let answer = typeof cq.validate !== 'function' || cq.validate(message.text) ? QUESTIONS[incQIndex()] : cq.errorMessage;
+  let answer = typeof cq.validate !== 'function' || cq.validate(message.text) ? getNextQuestion() : cq.errorMessage;
   return sendTextMessage(sender.id, answer.data);
 }
 
