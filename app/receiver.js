@@ -49,5 +49,4 @@ function receivedMessage({sender, recipient, timestamp, message}) {
 
 module.exports = {
   receivedMessage: receivedMessage,
-  onFormReceived: onFormReceived
 }
