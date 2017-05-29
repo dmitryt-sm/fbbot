@@ -1,0 +1,46 @@
+{
+    "title": "Credit Data",
+    "autoClose": false,
+    "message": "Thank You",
+    "callback-url": "https://pacific-beach-28675.herokuapp.com/formCallback",
+    "fields": [
+      {
+          "type": "input",
+          "name": "firstName",
+          "label": "First Name",
+          "validations": [{
+              "regex": "^[A-Z a-z]+$",
+              "msg": "Only alphabets are allowed in this field"
+          }]
+      },
+      {
+          "type": "input",
+          "name": "lastName",
+          "label": "Last Name",
+          "validations": [{
+              "regex": "^[A-Z a-z]+$",
+              "msg": "Only alphabets are allowed in this field"
+          }]
+      },
+      {
+          "type": "date",
+          "name": "birthdate",
+          "label": "Birth Date"
+      },
+      {
+        "type": "select",
+        "name": "purpose",
+        "label": "What is your purpose?",
+        "options": [
+            "option1",
+            "option2"
+        ],
+        "validations": [{
+            "regex": "",
+            "msg": ""
+        }]
+     }],
+    "users": [
+        "Testing"
+    ]
+}

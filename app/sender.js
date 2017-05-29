@@ -1,41 +1,12 @@
 var request = require('request');
 var config = require('../config');
 
-var FORM_URL = 'https://smapi.gupshup.io/sm/api/facebook/smartmsg/embed/a36e8985-0d2a-43bb-a913-e9d1fe09adf8';
-
-function sendForm(recipientId, {text}) {
+function sendTextMessage(recipientId, data = {}) {
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message: {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"button",
-          "text": text,
-          "buttons":[
-            {
-              "type":"web_url",
-              "url": FORM_URL,
-              "title":"Enter Details",
-              "webview_height_ratio": "compact"
-            }
-          ]
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendTextMessage(recipientId, {text}) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {text}
+    message: data,
   };
   console.log('Trying to send data: ', messageData);
   callSendAPI(messageData);
