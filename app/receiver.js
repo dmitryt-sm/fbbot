@@ -37,11 +37,11 @@ function getNextQuestion() {
   return QUESTIONS[incQIndex()]['data'];
 }
 
-function receivedMessage({sender, recipient, timestamp, message = {}, payload}) {
+function receivedMessage({sender, recipient, timestamp, message = {}, postback}) {
   console.log("Received message for user %d and page %d at %d with message:", sender.id, recipient.id, timestamp);
   console.log(JSON.stringify(message));
-  console.log(JSON.stringify(payload));
-  if (!message.text && !payload) {
+  console.log(JSON.stringify(postback));
+  if (!message.text && !postback) {
     return false
   }
   if (currentQuestionIndex === -1) {
