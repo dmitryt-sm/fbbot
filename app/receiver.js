@@ -44,7 +44,7 @@ function receivedMessage({sender, recipient, timestamp, message}) {
   }
   let cq = QUESTIONS[currentQuestionIndex];
   let answer = typeof cq.validate !== 'function' || cq.validate(message.text) ? QUESTIONS[incQIndex()] : cq.errorMessage;
-  return sendTextMessage(sender.id, answer);
+  return sendTextMessage(sender.id, answer.data);
 }
 
 module.exports = {
