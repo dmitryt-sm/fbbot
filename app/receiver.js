@@ -6,7 +6,7 @@ const QUESTIONS = [
   {data: message('Hello and thanks for joining our credit program! I\'ll help you to choose the best credit. But at first, I need some information from your side. So, what is your first name?')},
   {data: message('What is your last name?')},
   {data: message('What is your birthdate?')},
-  {data: message('How much you need?'), validate: v => !isNaN(v), errorMessage: {data: message('I accept only numbers here')}},
+  {data: message('How much you need?'), validate: v => !isNaN(v), errorMessage: message('I accept only numbers here')},
   {
     data: {
       attachment: {
@@ -48,7 +48,7 @@ function receivedMessage({sender, recipient, timestamp, message}) {
   }
   let cq = QUESTIONS[currentQuestionIndex];
   let answer = typeof cq.validate !== 'function' || cq.validate(message.text) ? getNextQuestion() : cq.errorMessage;
-  return sendTextMessage(sender.id, answer.data);
+  return sendTextMessage(sender.id, answer);
 }
 
 module.exports = {
