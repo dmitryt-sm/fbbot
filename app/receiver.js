@@ -15,9 +15,9 @@ const QUESTIONS = [
           template_type: 'button',
           text: 'What is the purpose?',
           buttons: [
-            {"type":"postback", "title":"Option1", "payload":"Option1"},
-            {"type":"postback", "title":"Option2", "payload":"Option2"},
-            {"type":"postback", "title":"Option3", "payload":"Option3"},
+            {"type":"postback", "title":"Car/Moto", "payload":"CarMoto"},
+            {"type":"postback", "title":"Furniture", "payload":"Furniture"},
+            {"type":"postback", "title":"General", "payload":"General"},
           ]
         }
       }
